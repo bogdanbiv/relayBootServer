@@ -9,7 +9,7 @@ const APP_PORT = 3000;
 const GRAPHQL_PORT = 8080;
 
 // Expose a GraphQL endpoint
-var graphQLServer = express();
+const graphQLServer = express();
 graphQLServer.use('/', graphQLHTTP({
   graphiql: true,
   pretty: true,

@@ -1,0 +1,49 @@
+https://medium.com/@clayallsopp/your-first-graphql-server-3c766ab4f0a2#.fkgxj6yvd
+
+curl -XPOST -H "Content-Type:application/graphql"  -d 'query RootQueryType { count }' http://localhost:3000/graphql
+{
+  "data": {
+    "count": 0
+  }
+}
+
+curl -XPOST -H 'Content-Type:application/graphql' -d 'mutation RootMutationType { updateCount }' http://localhost:3000/graphql
+{
+  "data": {
+    "updateCount": 1
+  }
+}
+
+curl -XPOST -H 'Content-Type:application/graphql'  -d '{__schema { queryType { name, fields { name, description} }}}' http://localhost:3000/graphql
+
+
+https://facebook.github.io/relay/docs/tutorial.html#content
+## Facebook Relay tutorial ##
+
+query Query {
+  game {
+    id,
+    hidingSpots {
+      edges {
+        node {
+          id,
+          hasTreasure,
+          hasBeenChecked
+        }
+      }
+    }
+  }
+}
+
+mutation Mutation {
+  checkHidingSpotForTreasure(input: { id: "SGlkaW5nU3BvdDo4", clientMutationId: "1"}) {
+    hidingSpot {
+      id,
+      hasBeenChecked,
+      hasTreasure
+    }
+  }
+}
+
+## Thinking in GraphQL ##
+## Thinking In Relay ##
